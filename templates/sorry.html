@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Sorry!{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="sorry">
+            <p>{{sorry}}</p>
+            {% if guesses %}
+                <p>Did You Mean:</p>
+                {% for guess in guesses %}
+                    <a href="/actor?name={{guess[0] | urlencode()}}">
+                        {{guess[0]}}
+                    </a>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

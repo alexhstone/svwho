@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Search by Actor{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center">
+        <form class="form" method="post" onsubmit="$('.form').hide(); $('#loading').show();">
+                <label class="label">
+                    enter an actor's name...
+                </label>
+                <input class="input" id="name" type="text" name="name" placeholder="Actor name..." required>
+                    <button type="submit">
+                        submit
+                    </button>
+        </form>
+        <div class="loader" id="loading" style="display:none;">
+            <span class="loader-text">searching</span>
+            <span class="load"></span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="response">
+                {% if title == None %}
+                <h1 class="yellow-shadow">Season {{season}}, Episode {{episode}}</h1>
+                {% else %}
+                <h1 class="yellow-shadow">{{title[0]}}: Season {{season}}, Episode {{episode}}</h1>
+                {% endif %}
+                <table class="table">
+                    <caption>
+                    {% if title == None%}
+                        Season {{season}}, Episode {{episode}}
+                    {% else %}    
+                        {{title[0]}}: Season {{season}}, Episode {{episode}}
+                    {% endif %}
+                    </caption>
+                    <tr>
+                    <th class="blue-shadow">
+                            Actor Name...
+                    </th> 
+                    <th class="red-shadow">
+                            Character...
+                    </th>
+                    </tr>
+                    {% for person in data %}
+                        <tr>
+                            <td>
+                            <a href="https://google.com/search?q={{person[0] | urlencode()}}" target="_blank">{{ person[0] }}</a>
+                            </td>
+                            <td>
+                                {{ person[1][1:-1]}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

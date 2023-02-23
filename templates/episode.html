@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Search by Episode{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center">
+        <form class="form" method="post" onsubmit="$('.form').hide(); $('#loading').show();">
+            <label class="label">season number...</label>
+            <input class="input" type="number" name="season" placeholder="Season #" min="0" required>
+            <label class="label">episode number...</label>
+            <input class="input" type="number" name="episode" placeholder="Episode #" min="0" required>
+            <button type="submit">submit</button>
+        </form>
+        <div class="loader" id="loading" style="display:none;">
+            <span class="loader-text">searching</span>
+            <span class="load"></span>
+        </div>
+    </div>
+</div>
+{% endblock %}

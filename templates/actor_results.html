@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="response">
+            <p>Yes! <strong>{{name}}</strong> was in {{plural}}</p>
+            <table class="table">
+                <tr>
+                    <th class="blue-shadow">
+                        Episode Title
+                    </th>
+                    <th class="red-shadow">
+                        Season #
+                    </th>
+                    <th class="yellow-shadow">
+                        Episode #
+                    </th>
+                </tr>
+                {% for d in data %}
+                <tr>
+                    <td>
+                        <a href="episode?season={{d[1]}}&episode={{d[2]}}" >{{d[0]}}</a>
+                    </td>
+                    <td>
+                        {{d[1]}}
+                    </td>
+                    <td>
+                        {{d[2]}}
+                    </td>
+
+                </tr>
+                {% endfor %}    
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
